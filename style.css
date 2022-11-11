@@ -1,10 +1,9 @@
-
 * {
-    margin: 0;
-    padding: 0;
-
-    font-family: 'Roboto', sans-serif;
-
-    --color-primary: #3d3a9a;
-    --color-secondary: #f3f85d;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  --color-primary: #3d3a9a;
+  --color-secondary: #f3f85d;
 }
+
+/*# sourceMappingURL=style.css.map */
