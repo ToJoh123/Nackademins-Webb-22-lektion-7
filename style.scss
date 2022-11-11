@@ -1,9 +1,40 @@
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
 
-    font-family: 'Roboto', sans-serif;
+  --color-primary: #004040;
+  --color-secondary: #400000d5;
 
-    --color-primary: #3d3a9a;
-    --color-secondary: #f3f85d;
+  --color-white: #fff;
+  --color-black: #000;
+}
+header {
+  background-color: var(--color-primary);
+  color: var(--color-black);
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.5rem;
+}
+main {
+  & .hero {
+    display: table;
+    width: 100%;
+    & .hero-left {
+      display: table-cell;
+      border: #000 1px solid;
+      background-color: var(--color-secondary);
+    }
+    & .hero-right {
+      display: table-cell;
+      border: #000 1px solid;
+      background-color: var(--color-secondary);
+    }
+  }
+  & .slideshow {
+    border: #000, 2px, solid;
+    width: 100vh;
+    //flex row
+    display: flex-row;
+  }
 }
