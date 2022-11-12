@@ -33,5 +33,14 @@ main .hero .hero-right {
 main .slideshow {
   border: #000, 2px, solid;
   width: 100vh;
-  display: flex-row;
+  display: grid;
+  gap: 50px;
+  grid-template-columns: auto auto auto auto auto;
+  padding: 10px;
+}
+main .slideshow .card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  transition: 0.3s;
+  padding: 20px;
 }/*# sourceMappingURL=style.css.map */

@@ -163,7 +163,7 @@ function createCardsJquery3() {
     card.addClass("card");
     card.hover(
       function () {
-        $(this).css("background-color", "pink");
+        $(this).css("box-shadow", "10px 10px 5px #888");
       },
       function () {
         $(this).css("background-color", "white");
@@ -182,4 +182,78 @@ function createCardsJquery3() {
 }
 
 //call the function
-createCardsJquery3();
+// createCardsJquery3();
+
+//create a function that uses jquery to create a card for each shoe in the array and appends it to the DOM in the container div .slideshow it also adds .card class to each card ands adds hover effect and border if the card is selected. it also console logs the name of the shoe when clicked and removes border the card when clicked again. there can only be one card selected at a time
+function createCardsJquery4() {
+  for (let i = 0; i < shoes.length; i++) {
+    const card = $(`
+                    <div class="card">
+                        <img src="${shoes[i].image}" alt="shoe">
+                        <div class="card-info">
+                            <h2>${shoes[i].name}</h2>
+                            <p>${shoes[i].description}</p>
+                            <p>${shoes[i].price} ${shoes[i].unit}</
+                        </div>
+                    </div>
+                `);
+    $(".slideshow").append(card);
+    card.addClass("card");
+    card.hover(
+      function () {
+        $(this).css("box-shadow", "10px 10px 5px #888");
+      },
+      function () {
+        $(this).css("box-shadow", "none");
+      }
+    );
+    card.click(function () {
+      $(this).toggleClass("selected");
+      console.log(shoes[i].name);
+      if ($(this).hasClass("selected")) {
+        $(this).css("border", "2px solid black");
+      } else {
+        $(this).css("border", "none");
+      }
+      $(".card").not(this).removeClass("selected");
+      $(".card").not(this).css("border", "none");
+    });
+  }
+}
+
+//call the function
+createCardsJquery4();
+
+//this code will display selected shoe in hero-right div
+// $(".card").click(function () {
+//   if ($(this).hasClass("selected")) {
+//     const shoe = shoes[$(this).index()];
+//     $(".hero-right").html(`
+//             <img src="${shoe.image}" alt="shoe">
+//             <div class="hero-right-info">
+//                 <h2>${shoe.name}</h2>
+//                 <p>${shoe.description}</p>
+//                 <p>${shoe.price} ${shoe.unit}</p>
+//             </div>
+//         `);
+//   }
+// });
+
+//this code will display selected shoe in hero-right div without shoe.description
+$(".card").click(function () {
+  if ($(this).hasClass("selected")) {
+    const shoe = shoes[$(this).index()];
+    $(".hero-right").html(`
+             <img src="${shoe.image}" alt="shoe">
+             <div class="hero-right
+[...]
+
+-info">     
+                  <img>${shoe.image}</img>
+                  <h3>${shoe.name}</h3>
+                  <p>${shoe.price} ${shoe.unit}</p>
+                  <button>Add to Cart</button>
+              </div>
+          `);
+  }
+});
